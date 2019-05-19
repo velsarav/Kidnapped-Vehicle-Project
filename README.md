@@ -14,7 +14,9 @@ In this project you will implement a 2 dimensional particle filter in C++. Your 
 ## Algorithm
 ![alt text][image1]
 
-
+## Initialization
+## Prediction step
+## Update step
 
 ## Running the Code
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases)
