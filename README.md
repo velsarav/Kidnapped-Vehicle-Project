@@ -7,6 +7,10 @@ Your robot has been kidnapped and transported to a new location! Luckily it has 
 
 In this project you will implement a 2 dimensional particle filter in C++. Your particle filter will be given a map and some initial localization information (analogous to what a GPS would provide). At each time step your filter will also get observation and control data.
 
+## Rubric Points
+
+The [rubric](https://review.udacity.com/#!/rubrics/1965/view) points were individually addressed in the [implementation](https://github.com/velsarav/Kidnapped-Vehicle-Project/tree/master/src)
+
 [//]: # (Image References)
 
 [image1]: ./docs/Algorithm_steps.png "Algorithm"
@@ -17,6 +21,8 @@ In this project you will implement a 2 dimensional particle filter in C++. Your 
 ## Initialization
 ## Prediction step
 ## Update step
+
+
 
 ## Running the Code
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases)
