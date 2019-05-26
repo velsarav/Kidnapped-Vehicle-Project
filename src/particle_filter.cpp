@@ -15,6 +15,7 @@
 #include <random>
 #include <string>
 #include <vector>
+#include <sstream>
 
 #include "helper_functions.h"
 
@@ -30,7 +31,28 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
    * NOTE: Consult particle_filter.h for more information about this method 
    *   (and others in this file).
    */
-  num_particles = 0;  // TODO: Set the number of particles
+   if(is_initialized){
+    return;
+  }
+  num_particles = 100;  // TODO: Set the number of particles
+  double std_x = std[0];
+  double std_y = std[1];
+  double std_theta = std[2];
+
+  normal_distribution<double> dist_x(x, std_x);
+  normal_distribution<double> dist_y(y, std_y);
+  normal_distribution<double> dist_theta(theta, std_theta);
+
+  for (int i=0; i <num_particles; i++){
+    Particle ptcl;
+    ptcl.id = i;
+    ptcl.x = dist_x(gen);
+    ptcl.y = dist_y(gen);
+    ptcl.theta = dist_theta(gen);
+    ptcl.weight = 1.0;
+    particles.push_back(ptcl);
+  }
+  is_initialized = true;
 
 }
 
