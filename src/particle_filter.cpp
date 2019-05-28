@@ -16,11 +16,13 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <cmath>
+#include <map>
+#include <iomanip>
 
 #include "helper_functions.h"
 
-using std::string;
-using std::vector;
+using namespace std;
 
 static default_random_engine gen;
 
@@ -41,9 +43,9 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
   double std_y = std[1];
   double std_theta = std[2];
 
-  normal_distribution<double> dist_x(x, std_x);
-  normal_distribution<double> dist_y(y, std_y);
-  normal_distribution<double> dist_theta(theta, std_theta);
+  std::normal_distribution<double> dist_x(x, std_x);
+  std::normal_distribution<double> dist_y(y, std_y);
+  std::normal_distribution<double> dist_theta(theta, std_theta);
 
   for (int i=0; i <num_particles; i++){
     Particle ptcl;
