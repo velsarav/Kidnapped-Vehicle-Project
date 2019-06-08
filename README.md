@@ -18,16 +18,46 @@ Please refer to the base project [README](https://github.com/udacity/CarND-Kidna
 
 [image1]: ./docs/Algorithm_steps.png "Algorithm"
 [image2]: ./docs/Success_result.png "Performance"
+[image3]: ./docs/Initialization.png "Initialization"
+[image4]: ./docs/Prediction.png "Prediction"
+[image5]: ./docs/Update.png "Update"
+[image6]: ./docs/Resampling.png "Resampling"
+[image7]: ./docs/Return.png "Return"
+
+## Particle Filter
+Particle filters estimate the state of dynamical systems from sensor information. The Particle Filter algorithms is a recursive implementation of the Monte Carlo based statistical signal processing method. The Monte Carlo localization algorithm is similar to [Kalman Filters](https://github.com/velsarav/project-extended-kalman-filter) estimates the posterior distribution of a robot's position and orientation based on sensory information but instead of using Gaussians it uses particles to model state.
 
 ## Algorithm
+The algorithm is similar to KF where motion and sensor updates are calculated in a loop  but PF adds one additional step: a particle filter resampling process where particles with large importance weights will survive while particles with low weights are ignored.
+
 ![alt text][image1]
 
 
 ### Psuedo Code
+The Pseudo code steps corresponds to the steps in the algorithm flow chart, initialization, prediction, particle weight updates, and resampling.
 
-## Initialization
-## Prediction step
-## Update step
+
+![alt text][image3]
+
+At the initialization step we estimate the position of GPS input. The subsequent steps in the process will refine this estimate to localize the robot.
+
+![alt text][image4]
+
+During the prediction step add the control input (yaw rate and velocity) for all particles.
+
+![alt text][image5]
+
+Update step will update the particle weights using map landmark positions and feature measurements.
+
+![alt text][image6]
+
+Resample M times (M is range of 0 to num_particles) drawing a particle i (i is the particle index) proportional to its weight. 
+
+![alt text][image7]
+
+The new set of particles represent the Bayes filter posterior probability. This provides a refined estimate of the robots position based on input evidence.
+
+
 
 ## C++ Random generation
 
